@@ -1,21 +1,13 @@
+require('./db/mongoose');
+const express = require('express');
+const blogRouter = require('./router/blog');
 
+const app = express();
+const port = 3000;
 
-const express = require('express')
-const mongoose = require('mongoose')
-const app = express()
-const url = `mongodb+srv://admin123:admin123@training.xr6wcyd.mongodb.net/?retryWrites=true&w=majority`;
+app.use(express.json());
+app.use(blogRouter);
 
-const connectionParams={
-    useNewUrlParser: true,
-    // useCreateIndex: true,
-    useUnifiedTopology: true 
-}
-mongoose.connect(url,connectionParams)
-    .then( (data) => {
-        console.log('Connected to the database ')
-    })
-    .catch( (err) => {
-        console.error(`Error connecting to the database. n${err}`);
-    })
-
-mongoose.
+app.listen(port, () => {
+    console.log('App is running on port 3000!');
+});
