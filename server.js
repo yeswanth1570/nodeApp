@@ -7,6 +7,9 @@ const port = 3000;
 
 app.use(express.json());
 app.use(blogRouter);
+app.get('/',()=>{
+    console.log('hello')
+})
 
 app.listen(port, () => {
     console.log('App is running on port 3000!');
