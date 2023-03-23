@@ -7,8 +7,9 @@ const port = 3000;
 
 app.use(express.json());
 app.use(blogRouter);
-app.get('/',()=>{
+app.get('/',(req,res)=>{
     console.log('hello')
+    res.send('connection made')
 })
 
 app.listen(port, () => {
