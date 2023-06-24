@@ -1,14 +1,13 @@
-require('./db/mongoose');
+// const mongoClient = require('./db/mongo')
 const express = require('express');
-const blogRouter = require('./router/blog');
+const CrudRouter = require('./router/CRUD');
 
 const app = express();
 const port = 3000;
 
 app.use(express.json());
-app.use(blogRouter);
+app.use(CrudRouter);
 app.get('/',(req,res)=>{
-    console.log('hello')
     res.send('connection made')
 })
 
